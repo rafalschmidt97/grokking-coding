@@ -1,0 +1,19 @@
+# top-most EditorConfig file
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+end_of_line = lf
+
+# JSON files
+[*.json]
+indent_size = 2
+
+# Shell script files
+[*.sh]
+indent_size = 2
+
+[*.md]
+indent_size = 2
+# indent_size = 6 # prettier markdown is broken and 4 doesn't work properly on lists
