@@ -1,19 +1,18 @@
-# top-most EditorConfig file
 root = true
 
 [*]
+insert_final_newline = true
 charset = utf-8
+trim_trailing_whitespace = true
 indent_style = space
 end_of_line = lf
-
-# JSON files
-[*.json]
 indent_size = 2
 
-# Shell script files
-[*.sh]
-indent_size = 2
+[{Makefile,go.mod,go.sum,*.go,.gitmodules}]
+indent_style = tab
+indent_size = 4
 
 [*.md]
 indent_size = 2
 # indent_size = 6 # prettier markdown is broken and 4 doesn't work properly on lists
+trim_trailing_whitespace = false
