@@ -17,7 +17,7 @@ func linearSearch(input *[]int, x int) (index int, err error) {
 }
 
 func main() {
-	input := []int{1, 2, 3, 4, 5, 6, 7}
+	input := []int{3, 5, 7, 9, 11}
 	x := 7
 	r, e := linearSearch(&input, x)
 	fmt.Printf("%v (%v)\n", r, e)
