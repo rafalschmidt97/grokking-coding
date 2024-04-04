@@ -2,9 +2,10 @@ package main
 
 import "fmt"
 
-// returns x
-// Time complexity: O(1)
-// Space complexity: O(1)
+// TODO:
+//
+// Time complexity: TODO:
+// Space complexity: TODO:
 func template(x int) int {
 	return x
 }
