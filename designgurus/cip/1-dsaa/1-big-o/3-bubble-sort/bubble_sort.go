@@ -2,9 +2,10 @@ package main
 
 import "fmt"
 
-// in place sorting
-// time complexity: O(n^2)
-// space complexity: O(1)
+// In place sorting.
+//
+// Time complexity: O(n^2)
+// Space complexity: O(1)
 func bubbleSort(array []int) {
 	for io := 0; io < len(array); io++ {
 		for ii := io + 1; ii < len(array); ii++ {

@@ -6,8 +6,8 @@ import (
 )
 
 // returns index if exists
-// time complexity: O(n)
-// space complexity: O(1)
+// Time complexity: O(n)
+// Space complexity: O(1)
 func linearSearch(array []int, x int) (index int, err error) {
 	for i, v := range array {
 		if v == x {

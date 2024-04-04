@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 // returns index if exits, otherwise -1
-// time complexity: O(logn)
-// space complexity: O(1)
+// Time complexity: O(logn)
+// Space complexity: O(1)
 //
 // assumes that the arr is sorted = [2, 3, 4, 5, 10, 40]; l=0; h=5
 // formula for middle = low + (high - low)/2
