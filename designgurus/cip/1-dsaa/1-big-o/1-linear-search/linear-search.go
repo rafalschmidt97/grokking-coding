@@ -6,9 +6,9 @@ import (
 )
 
 // returns index if exists
-// O(N) time complexity
-func linearSearch(input *[]int, x int) (index int, err error) {
-	for i, v := range *input {
+// time complexity: O(n)
+func linearSearch(array []int, x int) (index int, err error) {
+	for i, v := range array {
 		if v == x {
 			return i, nil
 		}
@@ -17,8 +17,8 @@ func linearSearch(input *[]int, x int) (index int, err error) {
 }
 
 func main() {
-	input := []int{3, 5, 7, 9, 11}
+	array := []int{3, 5, 7, 9, 11}
 	x := 7
-	r, e := linearSearch(&input, x)
+	r, e := linearSearch(array, x)
 	fmt.Printf("%v (%v)\n", r, e)
 }
