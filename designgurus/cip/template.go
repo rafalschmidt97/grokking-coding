@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+func template(x int) int {
+	return x
+}
+
 func main() {
-	fmt.Println("Hello World")
+	x := 1
+	fmt.Println(template(x))
 }
