@@ -13,6 +13,7 @@ length of the array minus one.
 
 ## Examples
 
+```text
 Example 1
 
 Input: [2, 3, 5, 1, 6] Expected Output: [2, 5, 10, 11, 17] Justification: For
@@ -25,3 +26,9 @@ Example 3
 
 Input: [-1, 2, -3, 4, -5] Expected Output: [-1, 1, -2, 2, -3] Justification:
 Negative numbers are also summed up in the same manner as positive ones.
+```
+
+## Constraints
+
+- 1 <= nums.length <= 1000
+- -10^6<= nums[i] <=10^6
