@@ -6,30 +6,42 @@ import (
 )
 
 func TestTemplate(t *testing.T) {
-	x := 1
-	got := template(x)
+	input := 1
+	expected := 1
 
-	if got != 1 {
-		t.Errorf("got %v; want %v", got, x)
+	got := template(input)
+	// template(x)
+
+	// if !reflect.DeepEqual(got, expected) {
+	// if !reflect.DeepEqual(input, expected) {
+	// if input != expected {
+	if got != expected {
+		t.Errorf("got %v; expected %v", got, expected)
+		// t.Errorf("got %v; expected %v", got, expected)
 	}
 }
 
 func TestTemplateCases(t *testing.T) {
 	tests := []struct {
-		x    int
-		want int
+		input    int
+		expected int
 	}{
-		{x: 1, want: 1},
-		{x: -1, want: -1},
+		{input: 1, expected: 1},
+		{input: -1, expected: -1},
 	}
 
 	for _, tt := range tests {
-		testname := fmt.Sprintf("%v,%v", tt.x, tt.want)
+		testname := fmt.Sprintf("%v,%v", tt.input, tt.expected)
 		t.Run(testname, func(t *testing.T) {
-			got := template(tt.x)
+			got := template(tt.input)
+			// template(tt.input)
 
-			if got != tt.want {
-				t.Errorf("got %v; want %v", got, tt.want)
+			// if !reflect.DeepEqual(got, tt.expected) {
+			// if !reflect.DeepEqual(tt.input, tt.expected) {
+			// if tt.input != tt.expected {
+			if got != tt.expected {
+				t.Errorf("got %v; expected %v", got, tt.expected)
+				// t.Errorf("got %v; expected %v", tt.input, tt.expected)
 			}
 		})
 	}

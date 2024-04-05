@@ -16,16 +16,26 @@ length of the array minus one.
 ```text
 Example 1
 
-Input: [2, 3, 5, 1, 6] Expected Output: [2, 5, 10, 11, 17] Justification: For
-i=0: 2 For i=1: 2 + 3 = 5 For i=2: 2 + 3 + 5 = 10 For i=3: 2 + 3 + 5 + 1 = 11
-For i=4: 2 + 3 + 5 + 1 + 6 = 17 Example 2
+Input: [2, 3, 5, 1, 6]
+Expected Output: [2, 5, 10, 11, 17]
+Justification:
+For i=0: 2
+For i=1: 2 + 3 = 5
+For i=2: 2 + 3 + 5 = 10
+For i=3: 2 + 3 + 5 + 1 = 11
+For i=4: 2 + 3 + 5 + 1 + 6 = 17
 
-Input: [1, 1, 1, 1, 1] Expected Output: [1, 2, 3, 4, 5] Justification: Each
-element is simply the sum of all preceding elements plus the current element.
+Example 2
+
+Input: [1, 1, 1, 1, 1]
+Expected Output: [1, 2, 3, 4, 5]
+Justification: Each element is simply the sum of all preceding elements plus the current element.
+
 Example 3
 
-Input: [-1, 2, -3, 4, -5] Expected Output: [-1, 1, -2, 2, -3] Justification:
-Negative numbers are also summed up in the same manner as positive ones.
+Input: [-1, 2, -3, 4, -5]
+Expected Output: [-1, 1, -2, 2, -3]
+Justification: Negative numbers are also summed up in the same manner as positive ones.
 ```
 
 ## Constraints
