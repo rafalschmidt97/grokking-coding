@@ -9,8 +9,8 @@ import "fmt"
 // Time complexity: O(2^n), because each call to fibonacci(n) results
 // in two additional recursive calls to fibonacci(n-1) and fibonacci(n-2).
 //
-// Space complexity: O(n), because of height of the tree and only
-// descend one of the recursions at a time.
+// Space complexity: O(n), because of height of the call stack (tree) and
+// only descend one of the recursions at a time.
 func fibonacciSequence(n int) int {
 	switch n {
 	case 0:

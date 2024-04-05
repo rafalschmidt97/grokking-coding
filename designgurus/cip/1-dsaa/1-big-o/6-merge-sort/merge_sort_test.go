@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestQuickSort(t *testing.T) {
+func TestMergeSort(t *testing.T) {
 	tests := []struct {
 		inputArray    []int
 		expectedArray []int
@@ -19,10 +19,10 @@ func TestQuickSort(t *testing.T) {
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v,%v", tt.inputArray, tt.expectedArray)
 		t.Run(testname, func(t *testing.T) {
-			sortedArray := quickSort(tt.inputArray)
+			mergeSort(tt.inputArray)
 
-			if !reflect.DeepEqual(sortedArray, tt.expectedArray) {
-				t.Errorf("got %v; want %v, input %v", sortedArray, tt.expectedArray, tt.inputArray)
+			if !reflect.DeepEqual(tt.inputArray, tt.expectedArray) {
+				t.Errorf("got %v; want %v", tt.inputArray, tt.expectedArray)
 			}
 		})
 	}

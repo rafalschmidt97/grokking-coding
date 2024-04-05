@@ -5,9 +5,12 @@ import (
 	"fmt"
 )
 
-// returns index if exists
+// Returns index if exists
+//
 // Time complexity: O(n)
-// Space complexity: O(1)
+//
+// Space complexity: O(1), only requires a constant amount of
+// memory regardless of the size of the input
 func linearSearch(array []int, x int) (index int, err error) {
 	for i, v := range array {
 		if v == x {

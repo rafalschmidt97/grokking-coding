@@ -20,9 +20,13 @@ func quickSort(array []int) []int {
 		return array
 	}
 
-	lessArray, equalArray, greaterArray := make([]int, 0), make([]int, 0), make([]int, 0)
-	pivot := array[len(array)-1]
+	mid := len(array) / 2
+	pivot := array[mid]
 
+	// do not know the size for arrays, can only predict upper bound (n)
+	lessArray, equalArray, greaterArray := make([]int, 0), make([]int, 0), make([]int, 0)
+
+	// split into three arrays using pivot
 	for _, v := range array {
 		if v < pivot {
 			lessArray = append(lessArray, v)
