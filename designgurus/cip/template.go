@@ -6,11 +6,11 @@ import "fmt"
 //
 // Time complexity: TODO:
 // Space complexity: TODO:
-func template(x int) int {
-	return x
+func template(input int) int {
+	return input
 }
 
 func main() {
-	x := 1
-	fmt.Println(template(x))
+	input := 1
+	fmt.Println(template(input))
 }
