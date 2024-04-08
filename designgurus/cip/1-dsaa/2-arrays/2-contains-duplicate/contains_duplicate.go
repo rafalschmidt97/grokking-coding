@@ -36,6 +36,6 @@ func containsDuplicateUsingSet(input []int) bool {
 }
 
 func main() {
-	x := []int{1, 2, 3, 4}
-	fmt.Println(containsDuplicate(x))
+	input := []int{1, 2, 3, 4}
+	fmt.Println(containsDuplicate(input))
 }
