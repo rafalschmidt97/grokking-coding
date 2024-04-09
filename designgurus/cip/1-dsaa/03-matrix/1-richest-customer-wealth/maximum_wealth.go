@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// Time complexity: O(n^2)
+// Time complexity: O(n*m)
 // Space complexity: O(1)
 func maximumWealth(input [][]int) int {
 	maximumWealth := 0
