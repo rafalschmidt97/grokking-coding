@@ -6,7 +6,7 @@ import (
 )
 
 func TestTemplate(t *testing.T) {
-	input := 1
+	input := [][]int{{1, 2, 3}}
 	expected := 1
 
 	got := template(input)
@@ -23,11 +23,16 @@ func TestTemplate(t *testing.T) {
 
 func TestTemplateCases(t *testing.T) {
 	tests := []struct {
-		input    int
+		input    [][]int
 		expected int
 	}{
-		{input: 1, expected: 1},
-		{input: -1, expected: -1},
+		{
+			input: [][]int{
+				{1, 2, 3},
+				{2, 3, 4},
+			},
+			expected: 1,
+		},
 	}
 
 	for _, tt := range tests {
