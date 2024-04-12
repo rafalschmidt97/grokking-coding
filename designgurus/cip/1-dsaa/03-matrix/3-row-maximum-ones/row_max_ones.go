@@ -11,7 +11,7 @@ func maxWithOnes(input [][]int) []int {
 	for i, v := range input { // rows
 		rowCount := 0
 
-		for _, v := range v { // rows
+		for _, v := range v {
 			if v == 1 {
 				rowCount = rowCount + 1
 			}
