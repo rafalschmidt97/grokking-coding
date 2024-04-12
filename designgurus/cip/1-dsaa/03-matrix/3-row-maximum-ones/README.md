@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-Given a binary matrix that has dimensions , consisting of ones and zeros,
+Given a binary matrix that has dimensions, consisting of ones and zeros,
 determine the row that contains the highest number of ones and return two
 values: the zero-based index of this row and the actual count of ones it
 possesses.
@@ -26,7 +26,6 @@ Expected Output: [2, 3]
 Justification: The third row [1, 1, 1] has the most ones, leading to the output [2, 3].
 
 Example 3:
-
 Input: [[1, 0, 1], [0, 0, 1], [1, 1, 0]]
 Expected Output: [0, 2]
 Justification: Both the first and third rows contain two ones,
