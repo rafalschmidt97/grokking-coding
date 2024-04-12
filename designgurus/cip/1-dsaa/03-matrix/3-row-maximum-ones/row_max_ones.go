@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-// Time complexity: TODO:
-// Space complexity: TODO:
+// Time complexity: O(m*n)
+// Space complexity: O(1)
 func maxWithOnes(input [][]int) []int {
 	maxIndex := -1
 	maxCount := 0
