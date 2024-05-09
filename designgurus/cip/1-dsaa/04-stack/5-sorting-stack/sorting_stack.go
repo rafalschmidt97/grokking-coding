@@ -13,7 +13,7 @@ import "fmt"
 // Input Stack: [98, 92], tmpStack: [3, 23, 31, 34]
 // Sorted: [3, 23, 31, 34, 92, 98]
 //
-// Time complexity: O(nlogn)
+// Time complexity: O(n^2) in the worst case
 // Space complexity: O(n)
 func sortStack(input []int) []int {
 	sortedInput := make([]int, 0, len(input))
