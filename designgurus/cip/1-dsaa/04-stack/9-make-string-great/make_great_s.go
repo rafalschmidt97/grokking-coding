@@ -6,11 +6,11 @@ import "fmt"
 //
 // Time complexity: TODO:
 // Space complexity: TODO:
-func template(input [][]int) int {
-	return 1
+func makeGreat(input string) string {
+	return ""
 }
 
 func main() {
-	input := [][]int{{1, 2, 3}}
-	fmt.Println(template(input))
+	input := ""
+	fmt.Println(makeGreat(input))
 }

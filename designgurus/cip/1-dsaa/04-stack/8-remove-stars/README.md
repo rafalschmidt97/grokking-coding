@@ -19,7 +19,7 @@ Description: We remove c along with * to get "abde*f", then remove e along with 
 Example 2
 
 Input: "a*b*c*d"
-Expected Output: "d"
+Expected Output: d
 Description: We remove a along with * to get "b*c*d", then remove b with * to get "c*d", then remove c with * to get "d".
 Example 3
 
