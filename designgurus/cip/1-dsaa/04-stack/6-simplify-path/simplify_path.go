@@ -6,11 +6,13 @@ import (
 )
 
 // Input: "/a//b////c/d//././/.."
-// Input: a ' ' b ' ' ' ' ' ' c d . . .. --- split
-// Input: a b c d . . .. --- remove empty
-// Input: a b c d .. --- remove single dots
-// Input: a b c --- go back
-// Input: /a/b/c --- recreate from the stack
+// Input: ["", "a", "", "b", "", "", "", "c", "d", "", ".", "", ".", "", "", ".."]
+// Input: none (ignored)
+// Input: a
+// Input: a - none (ignored)
+// Input: a b c d
+// Input: a b c
+// Input: /a/b/c
 //
 // Time complexity: O(n)
 // Space complexity: O(n)
@@ -18,9 +20,10 @@ func simplifyPath(input string) string {
 	splittedInput := strings.Split(input, "/")
 	stack := make([]string, 0, len(splittedInput))
 
-	// filter
+	// filter first
 	for _, v := range splittedInput {
-		if v != "" && v != " " && v != "." {
+		if v != "" && v != "." {
+			// If the component is not empty and not '.', push it onto the stack
 			stack = append(stack, v)
 		}
 	}
@@ -32,8 +35,10 @@ func simplifyPath(input string) string {
 			toPop := 0
 
 			if len(stack) == 1 {
+				// If the component is '..', pop the the only one from the stack
 				toPop = 1
 			} else {
+				// If the component is '..', pop the last two from the stack
 				toPop = 2
 			}
 
