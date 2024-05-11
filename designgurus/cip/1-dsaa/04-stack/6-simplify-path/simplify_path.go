@@ -44,17 +44,7 @@ func simplifyPath(input string) string {
 		i--
 	}
 
-	// recreate
-	if len(stack) == 0 {
-		return "/"
-	}
-
-	var builder strings.Builder
-	for _, v := range stack {
-		builder.WriteString("/")
-		builder.WriteString(v)
-	}
-	return builder.String()
+	return "/" + strings.Join(stack, "/")
 }
 
 func main() {
