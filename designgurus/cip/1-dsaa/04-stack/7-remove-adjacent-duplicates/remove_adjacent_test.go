@@ -16,7 +16,7 @@ func TestRemoveAdjacentDuplicates(t *testing.T) {
 		},
 		{
 			input:    "azxxzy",
-			expected: "ey",
+			expected: "ay",
 		},
 		{
 			input:    "abba",
