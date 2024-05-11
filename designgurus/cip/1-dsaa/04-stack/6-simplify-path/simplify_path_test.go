@@ -19,6 +19,10 @@ func TestSimplifyPath(t *testing.T) {
 			expected: "/",
 		},
 		{
+			input:    "/../..",
+			expected: "/",
+		},
+		{
 			input:    "/home//foo/",
 			expected: "/home/foo",
 		},

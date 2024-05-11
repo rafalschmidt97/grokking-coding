@@ -6,28 +6,53 @@ import (
 )
 
 // Input: "/a//b////c/d//././/.."
-// Input: "/a/b/c/d/././.." --- clean double shashes
-// Input: "/a/b/c/d/.." -- clean singular dots
-// Input: "/a/b/c" -- go back
+// Input: a ' ' b ' ' ' ' ' ' c d . . .. --- split
+// Input: a b c d . . .. --- remove empty
+// Input: a b c d .. --- remove single dots
+// Input: a b c --- go back
+// Input: /a/b/c --- recreate from the stack
 //
-// Time complexity: TODO:
-// Space complexity: TODO:
+// Time complexity: O(n)
+// Space complexity: O(n)
 func simplifyPath(input string) string {
-	// inputStack := make([]rune, 0, len(input))
-	outputStack := make([]rune, 0, len(input))
+	splittedInput := strings.Split(input, "/")
+	stack := make([]string, 0, len(splittedInput))
 
-	// for _, v := range inputStack {
-	// 	for len(outputStack) > 0 {
-	// 		stackPeek := outputStack[len(outputStack)-1]
-	// 		outputStack = outputStack[:len(outputStack)-1] // pop
-	// 	}
-	//
-	// 	stack = append(stack, v)
-	// }
+	// filter
+	for _, v := range splittedInput {
+		if v != "" && v != " " && v != "." {
+			stack = append(stack, v)
+		}
+	}
+
+	// go back if necessary
+	i := len(stack) - 1
+	for i >= 0 {
+		if stack[i] == ".." {
+			toPop := 0
+
+			if len(stack) == 1 {
+				toPop = 1
+			} else {
+				toPop = 2
+			}
+
+			stack = stack[:len(stack)-toPop] // pop
+			i = i - toPop
+		}
+
+		i--
+	}
+
+	// recreate
+	if len(stack) == 0 {
+		return "/"
+	}
 
 	var builder strings.Builder
-	for _, v := range outputStack {
-		builder.WriteRune(v)
+	for _, v := range stack {
+		builder.WriteString("/")
+		builder.WriteString(v)
 	}
 	return builder.String()
 }
