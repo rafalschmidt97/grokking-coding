@@ -1,16 +1,30 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
-// TODO:
-//
-// Time complexity: TODO:
-// Space complexity: TODO:
+// Time complexity: O(n)
+// Space complexity: O(n)
 func makeGreat(input string) string {
-	return ""
+	stack := []rune{}
+
+	for _, v := range input {
+		if len(stack) > 0 &&
+			strings.EqualFold(string(stack[len(stack)-1]), string(v)) &&
+			stack[len(stack)-1] != v {
+
+			stack = stack[:len(stack)-1]
+		} else {
+			stack = append(stack, v)
+		}
+	}
+
+	return string(stack)
 }
 
 func main() {
-	input := ""
+	input := "AaBbCcDdEeff"
 	fmt.Println(makeGreat(input))
 }
