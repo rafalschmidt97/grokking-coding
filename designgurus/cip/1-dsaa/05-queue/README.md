@@ -20,7 +20,17 @@ Terminology:
 - Deque (Double Ended Queue): Elements can be added or removed from both ends of
   the Queue.
 
+  - InsertFront and InsertRear instead of just one operation
+
 - Circular Queue: The last element points to the first, making a loop.
+
+  - if we reach the end of our array while enqueueing, instead of declaring an
+    Overflow, we wrap around and continue from the front of the array, as long
+    as there is space.
+
+  - it from the front and increment the front pointer. But if we reach the end
+    of the array while dequeuing, we wrap around and continue from the start of
+    the array.
 
 - Priority Queue: In this type, not all elements are equal. Some are considered
   more important.
@@ -48,3 +58,8 @@ There are four key operations that you can perform on a queue:
 
 - Using Linked List
 - Using an Array
+
+## Skipped exercises
+
+- Reverse queue with stack
+- Implement stack using queue
