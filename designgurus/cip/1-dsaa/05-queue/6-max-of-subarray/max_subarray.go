@@ -5,7 +5,7 @@ import "fmt"
 // Time complexity: O(n)
 // Space complexity: O(n)
 func maxOfSubarray(input []int, k int) []int {
-	queue := []int{}
+	result := []int{}
 
 	iv := [2]int{0, input[0]} // index and value tuple
 	for i, v := range input {
@@ -14,11 +14,11 @@ func maxOfSubarray(input []int, k int) []int {
 		}
 
 		if i+1 >= k {
-			queue = append(queue, iv[1])
+			result = append(result, iv[1])
 		}
 	}
 
-	return queue
+	return result
 }
 
 func main() {
