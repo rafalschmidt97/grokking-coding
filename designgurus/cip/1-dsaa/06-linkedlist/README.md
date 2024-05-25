@@ -45,3 +45,7 @@ Singly Linked:
 ## Skipped exercises
 
 - Reverse linked list
+
+## Consider reading
+
+- [Exploring the power of the container package in Go](https://www.codingexplorations.com/blog/exploring-the-power-of-the-container-package-in-go)
