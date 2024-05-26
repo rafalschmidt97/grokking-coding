@@ -1,13 +1,12 @@
 package main
 
 import (
-	"container/list"
 	"fmt"
 	"reflect"
 	"testing"
 )
 
-func TestReverseLL(t *testing.T) {
+func TestReverseListNode(t *testing.T) {
 	tests := []struct {
 		input    []int
 		expected []int
@@ -21,7 +20,9 @@ func TestReverseLL(t *testing.T) {
 			},
 		},
 		{
-			input: []int{},
+			input: []int{
+				7,
+			},
 			expected: []int{
 				7,
 			},
@@ -39,18 +40,10 @@ func TestReverseLL(t *testing.T) {
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v,%v", tt.input, tt.expected)
 		t.Run(testname, func(t *testing.T) {
-			got := reverse(arrayToLinkedList(tt.input))
-			if !reflect.DeepEqual(linkedListToArray(got), tt.expected) {
+			got := reverse(arrayToListNode(tt.input))
+			if !reflect.DeepEqual(listNodeToArray(got), tt.expected) {
 				t.Errorf("got %v; expected %v", got, tt.expected)
 			}
 		})
 	}
-}
-
-func linkedListToArray(input *list.List) []int {
-	array := []int{}
-	for e := input.Front(); e != nil; e = e.Next() {
-		array = append(array, e.Value.(int))
-	}
-	return array
 }
