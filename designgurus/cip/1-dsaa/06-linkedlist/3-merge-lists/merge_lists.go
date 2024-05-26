@@ -4,16 +4,49 @@ import (
 	"fmt"
 )
 
-// Input is sorted.
-// Time complexity: O(n)
+// Inputs are sorted.
+// Time complexity: O(m+n)
 // Space complexity: O(1):
-func mergeLists(input *ListNode) *ListNode {
-	return input
+func mergeLists(inputOne *ListNode, inputTwo *ListNode) *ListNode {
+	head := &ListNode{
+		Next:  nil,
+		Value: 0, // assumes that the values are positive
+	}
+	current := head
+
+	for inputOne != nil && inputTwo != nil {
+		if inputOne.Value > inputTwo.Value {
+			current.Next = inputTwo
+			inputTwo = inputTwo.Next
+		} else {
+			current.Next = inputOne
+			inputOne = inputOne.Next
+		}
+
+		current = current.Next
+	}
+
+	// Append remaining
+	if inputOne != nil {
+		current.Next = inputOne
+	}
+
+	if inputTwo != nil {
+		current.Next = inputTwo
+	}
+
+	return head.Next // skip pointer head
 }
 
 func main() {
-	input := []int{3, 5, 2}
-	fmt.Println(mergeLists(arrayToListNode(input)))
+	inputOne := []int{
+		1, 3, 5,
+	}
+	inputTwo := []int{
+		2, 4, 6,
+	}
+
+	fmt.Println(mergeLists(arrayToListNode(inputOne), arrayToListNode(inputTwo)))
 }
 
 // Boilerplate for singly linked list

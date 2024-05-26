@@ -8,39 +8,49 @@ import (
 
 func TestMergeLists(t *testing.T) {
 	tests := []struct {
-		input    []int
+		inputOne []int
+		inputTwo []int
 		expected []int
 	}{
 		{
-			input: []int{
-				1, 1, 2,
+			inputOne: []int{
+				1, 3, 5,
+			},
+			inputTwo: []int{
+				2, 4, 6,
 			},
 			expected: []int{
-				1, 2,
+				1, 2, 3, 4, 5, 6,
 			},
 		},
 		{
-			input: []int{
-				1, 2, 2, 3,
+			inputOne: []int{
+				2, 4, 6,
+			},
+			inputTwo: []int{
+				1, 3, 5,
 			},
 			expected: []int{
+				1, 2, 3, 4, 5, 6,
+			},
+		},
+		{
+			inputOne: []int{
 				1, 2, 3,
 			},
-		},
-		{
-			input: []int{
-				3, 3, 3,
+			inputTwo: []int{
+				4, 5, 6,
 			},
 			expected: []int{
-				3,
+				1, 2, 3, 4, 5, 6,
 			},
 		},
 	}
 
 	for _, tt := range tests {
-		testname := fmt.Sprintf("%v,%v", tt.input, tt.expected)
+		testname := fmt.Sprintf("%v,%v,%v", tt.inputOne, tt.inputTwo, tt.expected)
 		t.Run(testname, func(t *testing.T) {
-			got := mergeLists(arrayToListNode(tt.input))
+			got := mergeLists(arrayToListNode(tt.inputOne), arrayToListNode(tt.inputTwo))
 			if !reflect.DeepEqual(listNodeToArray(got), tt.expected) {
 				t.Errorf("got %v; expected %v", got, tt.expected)
 			}
