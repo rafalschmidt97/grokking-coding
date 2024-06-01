@@ -4,9 +4,8 @@ import (
 	"fmt"
 )
 
-// Input is sorted.
-// Time complexity: O(n)
-// Space complexity: O(1):
+// Time complexity: TODO:
+// Space complexity: TODO:
 func swapNodesPairs(input *ListNode) *ListNode {
 	return input
 }

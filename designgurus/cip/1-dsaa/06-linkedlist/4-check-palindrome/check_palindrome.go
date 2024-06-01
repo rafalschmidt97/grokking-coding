@@ -4,50 +4,62 @@ import (
 	"fmt"
 )
 
-// Input is sorted.
-// Time complexity: O(n)
-// Space complexity: O(1):
-func checkPalindrome(input *ListNode) *ListNode {
-	return input
+// A doubly linked list is a palindrome if it reads the same backward as forward,
+// utilizing the previous and next pointers of the nodes.
+//
+// Time complexity: TODO:
+// Space complexity: TODO:
+func checkPalindrome(head *DoublyListNode) bool {
+	tail := head
+
+	for tail.Next != nil {
+		tail = tail.Next
+	}
+
+	for tail != nil && head != nil {
+		if tail.Value != head.Value {
+			return false
+		}
+
+		head = head.Next
+		tail = tail.Prev
+	}
+
+	return true
 }
 
 func main() {
-	input := []int{3, 5, 2}
+	input := []int{1, 2, 3, 2, 1}
 	fmt.Println(checkPalindrome(arrayToListNode(input)))
 }
 
 // Boilerplate for singly linked list
 
-type ListNode struct {
-	Next  *ListNode
+type DoublyListNode struct {
+	Prev  *DoublyListNode
+	Next  *DoublyListNode
 	Value int
 }
 
-func arrayToListNode(input []int) *ListNode {
-	var headNode *ListNode
-	var previousNode *ListNode
+func arrayToListNode(input []int) *DoublyListNode {
+	var headNode *DoublyListNode
+	var previousNode *DoublyListNode
 
 	for _, v := range input {
-		nextNode := ListNode{
+		nextNode := DoublyListNode{
 			Value: v,
 			Next:  nil,
+			Prev:  nil,
 		}
 
 		if headNode == nil {
 			headNode = &nextNode
 		} else {
 			previousNode.Next = &nextNode
+			nextNode.Prev = previousNode
 		}
 
 		previousNode = &nextNode
 	}
 	return headNode
-}
-
-func listNodeToArray(input *ListNode) []int {
-	array := []int{}
-	for e := input; e != nil; e = e.Next {
-		array = append(array, e.Value)
-	}
-	return array
 }
