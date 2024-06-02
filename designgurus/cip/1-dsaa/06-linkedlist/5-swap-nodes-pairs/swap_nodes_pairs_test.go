@@ -13,26 +13,26 @@ func TestMergeLists(t *testing.T) {
 	}{
 		{
 			input: []int{
-				1, 1, 2,
+				1, 2, 3, 4,
 			},
 			expected: []int{
-				1, 2,
+				2, 1, 4, 3,
 			},
 		},
 		{
 			input: []int{
-				1, 2, 2, 3,
+				7, 8, 9, 10, 11,
 			},
 			expected: []int{
-				1, 2, 3,
+				8, 7, 10, 9, 11,
 			},
 		},
 		{
 			input: []int{
-				3, 3, 3,
+				5, 6,
 			},
 			expected: []int{
-				3,
+				6, 5,
 			},
 		},
 	}
@@ -40,7 +40,7 @@ func TestMergeLists(t *testing.T) {
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v,%v", tt.input, tt.expected)
 		t.Run(testname, func(t *testing.T) {
-			got := mergeLists(arrayToListNode(tt.input))
+			got := swapNodesPairs(arrayToListNode(tt.input))
 			if !reflect.DeepEqual(listNodeToArray(got), tt.expected) {
 				t.Errorf("got %v; expected %v", got, tt.expected)
 			}
