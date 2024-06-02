@@ -10,8 +10,8 @@ import (
 // If the total number of nodes in the list is odd, the last node remains in place.
 // Every node in the linked list contains a single integer value.
 //
-// Time complexity: TODO:
-// Space complexity: TODO:
+// Time complexity: O(n):
+// Space complexity: O(1):
 func swapNodesPairs(input *ListNode) *ListNode {
 	head := &ListNode{
 		Next:  input,

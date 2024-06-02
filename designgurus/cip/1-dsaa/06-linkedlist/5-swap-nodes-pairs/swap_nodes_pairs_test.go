@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestMergeLists(t *testing.T) {
+func TestSwapNodesPairs(t *testing.T) {
 	tests := []struct {
 		input    []int
 		expected []int
