@@ -6,27 +6,27 @@ import "fmt"
 //
 // Time complexity: TODO:
 // Space complexity: TODO:
-func maxDepthBinaryTree(input *TreeNode) int {
-	return 1
+func isBinaryTreeBalanced(input *TreeNode) bool {
+	return false
 }
 
 func main() {
 	input := &TreeNode{
 		Left: &TreeNode{
-			Left: &TreeNode{
-				Value: 4,
-			},
-			Right: &TreeNode{
-				Value: 5,
-			},
-			Value: 2,
+			Value: 9,
 		},
 		Right: &TreeNode{
-			Value: 3,
+			Left: &TreeNode{
+				Value: 15,
+			},
+			Right: &TreeNode{
+				Value: 7,
+			},
+			Value: 20,
 		},
-		Value: 1,
+		Value: 3,
 	}
-	fmt.Println(maxDepthBinaryTree(input))
+	fmt.Println(isBinaryTreeBalanced(input))
 }
 
 // Boilerplate for tree node
