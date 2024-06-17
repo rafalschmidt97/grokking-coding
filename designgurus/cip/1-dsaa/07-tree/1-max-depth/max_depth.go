@@ -2,12 +2,23 @@ package main
 
 import "fmt"
 
-// TODO:
+// DFS approach
 //
-// Time complexity: TODO:
-// Space complexity: TODO:
+// Time complexity: O(n)
+// Space complexity: O(d) where d is the depth
 func maxDepthBinaryTree(input *TreeNode) int {
-	return 1
+	if input == nil {
+		return 0 // base case for recursiveness
+	}
+
+	leftNodeDepth := maxDepthBinaryTree(input.Left)
+	rightNodeDepth := maxDepthBinaryTree(input.Right)
+
+	if leftNodeDepth >= rightNodeDepth {
+		return leftNodeDepth + 1 // add one for the current node
+	} else {
+		return rightNodeDepth + 1
+	}
 }
 
 func main() {

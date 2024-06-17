@@ -59,7 +59,7 @@ func TestMaxDepthBinaryTree(t *testing.T) {
 				},
 				Value: 1,
 			},
-			expected: 3,
+			expected: 4,
 		},
 	}
 
