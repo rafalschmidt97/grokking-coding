@@ -1,13 +1,40 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
-// TODO:
+// DFS approach
 //
-// Time complexity: TODO:
-// Space complexity: TODO:
+// Time complexity: O(n)
+// Space complexity: O(d) where d is the depth
 func isBinaryTreeBalanced(input *TreeNode) bool {
-	return false
+	return depth(input) != -1
+}
+
+func depth(input *TreeNode) int {
+	if input == nil {
+		return 0 // base case for recursiveness
+	}
+
+	leftNodeDepth := depth(input.Left)
+	rightNodeDepth := depth(input.Right)
+
+	if leftNodeDepth == -1 || rightNodeDepth == -1 {
+		return -1 // current node is not balanced, populate
+	}
+
+	if math.Abs(float64(leftNodeDepth-rightNodeDepth)) > 1 {
+		return -1
+	}
+
+	// return int(math.Max(float64(leftNodeDepth), float64(rightNodeDepth))) + 1
+	if leftNodeDepth >= rightNodeDepth {
+		return leftNodeDepth + 1 // add one for the current node
+	} else {
+		return rightNodeDepth + 1
+	}
 }
 
 func main() {

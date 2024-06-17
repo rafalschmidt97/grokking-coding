@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestMaxDepthBinaryTree(t *testing.T) {
+func TestIsBinaryTreeBalanced(t *testing.T) {
 	tests := []struct {
 		input    *TreeNode
 		expected bool
