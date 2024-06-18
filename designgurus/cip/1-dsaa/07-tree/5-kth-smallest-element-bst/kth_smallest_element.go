@@ -2,12 +2,41 @@ package main
 
 import "fmt"
 
-// TODO:
-//
-// Time complexity: TODO:
-// Space complexity: TODO:
-func kthSmallestElementBst(_ *TreeNode, k int) int {
-	return 0
+type Solution struct {
+	counter int
+	result  int
+}
+
+// Time complexity: O(n) worst case, O(k) best case
+// Space complexity: O(1) if stack not counts
+func kthSmallestElementBst(input *TreeNode, k int) int {
+	solution := Solution{
+		counter: 0,
+		result:  -1,
+	}
+
+	inorderTraversalWithStopOnFindK(input, k, &solution)
+	return solution.result
+}
+
+func inorderTraversalWithStopOnFindK(input *TreeNode, k int, solution *Solution) {
+	if input == nil {
+		return
+	}
+
+	if solution.counter == k {
+		return
+	}
+
+	inorderTraversalWithStopOnFindK(input.Left, k, solution)
+
+	solution.counter++
+
+	if solution.counter == k {
+		solution.result = input.Value
+	}
+
+	inorderTraversalWithStopOnFindK(input.Right, k, solution)
 }
 
 func main() {

@@ -20,7 +20,8 @@ Input:
   4   7  13
 k = 4
 Expected Output: 6
-Justification: The in-order traversal of the tree is [1, 3, 4, 6, 7, 8, 10, 13, 14]. The 4th element in this sequence is 6.
+Justification: The in-order traversal of the tree is [1, 3, 4, 6, 7, 8, 10, 13, 14].
+The 4th element in this sequence is 6.
 
 Example 2:
 Input:
