@@ -1,13 +1,47 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
-// TODO:
-//
-// Time complexity: TODO:
-// Space complexity: TODO:
-func closestBstValue(_ *TreeNode, target float64) int {
-	return 0
+type Solution struct {
+	closest int
+}
+
+// Time complexity: O(n)
+// Space complexity: O(H)
+func closestBstValue(input *TreeNode, target float64) int {
+	solution := Solution{
+		closest: math.MinInt32,
+	}
+
+	inorderTraversalWithSearchForClosest(input, target, &solution)
+	return solution.closest
+}
+
+func inorderTraversalWithSearchForClosest(input *TreeNode, target float64, solution *Solution) {
+	if input == nil {
+		return
+	}
+
+	inorderTraversalWithSearchForClosest(input.Left, target, solution)
+
+	diffCurrentClosest := math.Abs(math.Abs(float64(solution.closest)) - target)
+	diffNextClosest := math.Abs(math.Abs(float64(input.Value)) - target)
+
+	if diffNextClosest < diffCurrentClosest {
+		solution.closest = input.Value
+	}
+
+	inorderTraversalWithSearchForClosest(input.Right, target, solution)
+
+	diffCurrentClosest = math.Abs(math.Abs(float64(solution.closest)) - target)
+	diffNextClosest = math.Abs(math.Abs(float64(input.Value)) - target)
+
+	if diffNextClosest < diffCurrentClosest {
+		solution.closest = input.Value
+	}
 }
 
 func main() {

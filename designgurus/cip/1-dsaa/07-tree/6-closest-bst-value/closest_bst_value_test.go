@@ -67,7 +67,7 @@ func TestClosestBstValue(t *testing.T) {
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v,%v", tt.input, tt.expected)
 		t.Run(testname, func(t *testing.T) {
-			got := closestBstValue(tt.input, tt.target)
+			got := closestBstValueOriginal(tt.input, tt.target)
 
 			if got != tt.expected {
 				t.Errorf("got %v; expected %v", got, tt.expected)
