@@ -2,12 +2,46 @@ package main
 
 import "fmt"
 
-// TODO:
-//
-// Time complexity: TODO:
-// Space complexity: TODO:
-func rangeSumBst(_ *TreeNode, min int, max int) int {
-	return 0
+// Time complexity: O(n)
+// Space complexity: O(H), where H is the hight of the bst,
+// space is used by the call stack during the recursion.
+func rangeSumBst(input *TreeNode, min int, max int) int {
+	solution := Solution{
+		done: false,
+		sum:  0,
+	}
+
+	inorderTraversalWithSkipRanges(input, min, max, &solution)
+	return solution.sum
+}
+
+type Solution struct {
+	done bool
+	sum  int
+}
+
+func inorderTraversalWithSkipRanges(input *TreeNode, min int, max int, solution *Solution) {
+	if input == nil {
+		return
+	}
+
+	if solution.done {
+		return
+	}
+
+	inorderTraversalWithSkipRanges(input.Left, min, max, solution)
+
+	if input.Value >= min && input.Value <= max {
+		solution.sum += input.Value
+	} else if input.Value > max {
+		solution.done = true
+	}
+
+	if solution.done {
+		return
+	}
+
+	inorderTraversalWithSkipRanges(input.Right, min, max, solution)
 }
 
 func main() {
