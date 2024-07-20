@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestClosestBstValue(t *testing.T) {
+func TestMergeTwoBst(t *testing.T) {
 	tests := []struct {
 		inputOne *TreeNode
 		inputTwo *TreeNode

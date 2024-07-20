@@ -1,13 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-// TODO:
-//
-// Time complexity: TODO:
-// Space complexity: TODO:
-func mergeTwoBsts(inputOne *TreeNode, _ *TreeNode) *TreeNode {
-	return inputOne
+// Time complexity: O(min(N, M))
+// Space complexity: O(min(N, M)):
+func mergeTwoBsts(inputOne *TreeNode, inputTwo *TreeNode) *TreeNode {
+	if inputOne == nil {
+		return inputTwo
+	}
+
+	if inputTwo == nil {
+		return inputOne
+	}
+
+	newNode := &TreeNode{Value: inputOne.Value + inputTwo.Value}
+	newNode.Left = mergeTwoBsts(inputOne.Left, inputTwo.Left)
+	newNode.Right = mergeTwoBsts(inputOne.Right, inputTwo.Right)
+
+	return newNode
 }
 
 func main() {
