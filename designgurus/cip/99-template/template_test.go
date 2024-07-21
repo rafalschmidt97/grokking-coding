@@ -5,22 +5,6 @@ import (
 	"testing"
 )
 
-func TestTemplate(t *testing.T) {
-	input := [][]int{{1, 2, 3}}
-	expected := 1
-
-	got := template(input)
-	// template(x)
-
-	// if !reflect.DeepEqual(got, expected) {
-	// if !reflect.DeepEqual(input, expected) {
-	// if input != expected {
-	if got != expected {
-		t.Errorf("got %v; expected %v", got, expected)
-		// t.Errorf("got %v; expected %v", got, expected)
-	}
-}
-
 func TestTemplateCases(t *testing.T) {
 	tests := []struct {
 		input    [][]int
