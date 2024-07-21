@@ -8,7 +8,7 @@ import "fmt"
 // For a string with only lowercase English letters,
 // the maximum number of unique characters is 26. ASCII 128/256
 func firstNonRepeatingChar(input string) int {
-	charsMap := make(map[rune]int, 0) // could also use empty struct{} to save storage
+	charsMap := make(map[rune]int, 0)
 
 	for _, char := range input {
 		charsMap[char]++
