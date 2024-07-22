@@ -2,10 +2,8 @@ package main
 
 import "fmt"
 
-// TODO:
-//
-// Time complexity: TODO:
-// Space complexity: TODO:
+// Time complexity: TODO: change
+// Space complexity: TODO: change
 func template(input [][]int) int {
 	return 1
 }
