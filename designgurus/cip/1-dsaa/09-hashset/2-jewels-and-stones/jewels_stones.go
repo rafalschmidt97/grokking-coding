@@ -2,13 +2,24 @@ package main
 
 import "fmt"
 
-// Time complexity: TODO: change
-// Space complexity: TODO: change
-func template(input [][]int) int {
-	return 1
+// Time complexity: O(N+M)
+// Space complexity: O(1), alphabet is fixed
+func jewelsStones(jewels string, stones string) int {
+	lewelsSet := make(map[rune]struct{}, 0)
+	for _, jewelChar := range jewels {
+		lewelsSet[jewelChar] = struct{}{}
+	}
+	counter := 0
+	for _, stoneChar := range stones {
+		if _, ok := lewelsSet[stoneChar]; ok {
+			counter++
+		}
+	}
+	return counter
 }
 
 func main() {
-	input := [][]int{{1, 2, 3}}
-	fmt.Println(template(input))
+	jewels := "abc"
+	stones := "aabbcc"
+	fmt.Println(jewelsStones(jewels, stones))
 }
