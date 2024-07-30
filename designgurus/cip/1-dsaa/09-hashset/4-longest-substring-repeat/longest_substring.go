@@ -5,25 +5,21 @@ import "fmt"
 // Time complexity: TODO: change
 // Space complexity: TODO: change
 func longestSubstringWithoutRepeatingChar(input string) int {
-	repeatingCharSet := make(map[rune]bool, 0)
-	for _, char := range input {
-		if _, ok := repeatingCharSet[char]; ok {
-			repeatingCharSet[char] = true
+	repeatingChar := make(map[byte]struct{})
+	maxLength, start, end := 0, 0, 0
+
+	for end < len(input) {
+		if _, ok := repeatingChar[input[end]]; !ok {
+			repeatingChar[input[end]] = struct{}{}
+			maxLength = max(maxLength, end-start+1)
+			end++
 		} else {
-			repeatingCharSet[char] = false
+			delete(repeatingChar, input[start])
+			start++
 		}
 	}
-	counter := 1
-	for _, char := range input {
-		if repeating := repeatingCharSet[char]; !repeating {
-			counter++
-		} else {
-			if counter > 1 {
-				counter--
-			}
-		}
-	}
-	return counter
+
+	return maxLength
 }
 
 func main() {
