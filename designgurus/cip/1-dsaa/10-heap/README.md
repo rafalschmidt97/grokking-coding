@@ -31,7 +31,7 @@ Insert Element can be done with:
 
 ## Time complexity
 
-- Find min/max - O(N)
+- Find min/max - O(1)
 - Insert - O(log(n))
 - Remove - O(log(n))
 - Heapify (create heap from any array) - O(n)
