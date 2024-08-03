@@ -16,9 +16,11 @@ func takeGiftsFromRichestMax(input []int, k int) int {
 		max := maxHeap[0] // pop first (largest)
 		maxSqrt := int(math.Floor(math.Sqrt(float64(max))))
 		maxHeap = append(maxHeap[1:], maxSqrt) // push with shrink
+
 		// maxHeap[0] = maxHeap[len(maxHeap)-1] // Replace the root with the last element and shrink the heap.
 		// maxHeap = maxHeap[:len(maxHeap)-1]
 		// maxHeap = append(maxHeap, maxSqrt) // Add the square root value to the heap.
+
 		maxHeapify(maxHeap, 0)
 	}
 
@@ -29,9 +31,9 @@ func takeGiftsFromRichestMax(input []int, k int) int {
 	return remaining
 }
 
-// Boilerplate for singly linked list
+// Boilerplate
 
-// maxHeapify ensures the max heap property for the subtree rooted at index i.
+// ensures the max heap property for the subtree rooted at index i.
 func maxHeapify(arr []int, i int) {
 	largest := i     // Initialize largest as root.
 	left := 2*i + 1  // Left child index.
@@ -52,7 +54,7 @@ func maxHeapify(arr []int, i int) {
 	}
 }
 
-// buildMaxHeap converts an array into a max heap.
+// converts an array into a max heap.
 func buildMaxHeap(arr []int) {
 	// Start from the last non-leaf node and move upwards.
 	for i := len(arr)/2 - 1; i >= 0; i-- {
