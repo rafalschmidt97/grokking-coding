@@ -18,12 +18,13 @@ tree:
 ## Types
 
 - max heap - every parent node has a value bigger than or equal to its children.
-  :
 
-![](.attachements/test.png)
+![](attachements/max_heap.png)
 
 - min heap - every parent node has a value smaller than or equal to its
   children.
+
+![](attachements/min_heap.png)
 
 ## Operations
 
