@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-// Time complexity: TODO: change
-// Space complexity: TODO: change
+// Time complexity: O(nlogn)
+// Space complexity: O(n)
 func minimumCostToConnectSticks(input []int) int {
 	minHeap := append([]int{}, input...)
 	buildMinHeap(minHeap)
