@@ -2,33 +2,55 @@ package main
 
 import "fmt"
 
-// Time complexity: TODO: change
-// Space complexity: TODO: change
+// Time complexity: Insert: O(logn), Find: O(1)
+// Space complexity: O(n)
 func findMedian(inputStream []int) []float64 {
 	output := make([]float64, 0)
 	maxHeap := make([]int, 0)
-	buildMaxHeap(maxHeap)
+	minHeap := make([]int, 0)
 
 	for _, v := range inputStream {
-		if v == -1 {
-			median := findMedianFromMaxHeap(maxHeap)
-			output = append(output, median)
+		if v == -1 { // code for find is minus 1
+			// find
+
+			if len(maxHeap) == len(minHeap) {
+				median := float64(-maxHeap[0]+minHeap[0]) / 2
+				output = append(output, median)
+			} else {
+				median := float64(-maxHeap[0])
+				output = append(output, median)
+			}
 		} else {
-			maxHeap = append(maxHeap, v)
-			maxHeapify(maxHeap, 0)
+			// insert
+
+			if len(maxHeap) == 0 || -maxHeap[0] >= v {
+				maxHeap = append(maxHeap, -v)
+				minHeapify(maxHeap, 0)
+			} else {
+				minHeap = append(minHeap, v)
+				minHeapify(minHeap, 0)
+			}
+
+			// either both the heaps will have equal number
+			// of elements or max-heap will have one
+			// more element than the min-heap
+			if len(maxHeap) > len(minHeap)+1 {
+				pullMaxHeap := -maxHeap[0]
+				maxHeap = maxHeap[1:]
+				minHeapify(maxHeap, 0)
+				minHeap = append(minHeap, pullMaxHeap)
+				minHeapify(minHeap, 0)
+			} else if len(maxHeap) < len(minHeap) {
+				pullMinHeap := minHeap[0]
+				minHeap = minHeap[1:]
+				minHeapify(minHeap, 0)
+				maxHeap = append(maxHeap, -pullMinHeap)
+				minHeapify(maxHeap, 0)
+			}
 		}
 	}
 
 	return output
-}
-
-func findMedianFromMaxHeap(maxHeap []int) float64 {
-	i := len(maxHeap) / 2
-	if len(maxHeap)%2 == 0 && len(maxHeap) > 0 {
-		return float64(maxHeap[i]) + float64(maxHeap[i+1])/2
-	} else {
-		return float64(maxHeap[i])
-	}
 }
 
 func main() {
@@ -38,31 +60,23 @@ func main() {
 
 // Boilerplate
 
-// ensures the max heap property for the subtree rooted at index i.
-func maxHeapify(arr []int, i int) {
-	largest := i     // Initialize largest as root.
+func minHeapify(arr []int, i int) {
+	smallest := i    // Initialize largest as root.
 	left := 2*i + 1  // Left child index.
 	right := 2*i + 2 // Right child index.
 
-	// Check if the left child exists and is greater than the root.
-	if left < len(arr) && arr[left] > arr[largest] {
-		largest = left
+	// Check if the left child exists and is smaller than the root.
+	if left < len(arr) && arr[left] < arr[smallest] {
+		smallest = left
 	}
-	// Check if the right child exists and is greater than the current largest.
-	if right < len(arr) && arr[right] > arr[largest] {
-		largest = right
+	// Check if the right child exists and is smaller than the current smallest.
+	if right < len(arr) && arr[right] < arr[smallest] {
+		smallest = right
 	}
-	// If largest is not root, swap it with the largest and continue heapifying.
-	if largest != i {
-		arr[i], arr[largest] = arr[largest], arr[i]
-		maxHeapify(arr, largest)
-	}
-}
 
-// converts an array into a max heap.
-func buildMaxHeap(arr []int) {
-	// Start from the last non-leaf node and move upwards.
-	for i := len(arr)/2 - 1; i >= 0; i-- {
-		maxHeapify(arr, i)
+	// If smallest is not root, swap it with the smallest and continue heapifying.
+	if smallest != i {
+		arr[i], arr[smallest] = arr[smallest], arr[i]
+		minHeapify(arr, smallest)
 	}
 }

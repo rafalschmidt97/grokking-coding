@@ -51,7 +51,7 @@ func minHeapify(arr []int, i int) {
 	// If smallest is not root, swap it with the smallest and continue heapifying.
 	if smallest != i {
 		arr[i], arr[smallest] = arr[smallest], arr[i]
-		maxHeapify(arr, smallest)
+		minHeapify(arr, smallest)
 	}
 }
 
