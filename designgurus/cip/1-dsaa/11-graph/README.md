@@ -83,3 +83,13 @@ involving relationships and connections.
   vertices, A and B, in a strongly connected graph, there is a directed path
   from A to B and B to A.
   - ![](attachements/strongly-connected.png)
+
+## Representations
+
+### Adjacency matrix
+
+<!--TODO: write a few sentences -->
+
+### Adjacency list
+
+<!--TODO: write a few sentences -->
