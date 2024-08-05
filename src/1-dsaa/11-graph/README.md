@@ -88,8 +88,49 @@ involving relationships and connections.
 
 ### Adjacency matrix
 
-<!--TODO: write a few sentences -->
+It is a square matrix where the rows and columns represent the vertices of the
+graph, and the entries (elements) of the matrix indicate whether there is an
+edge between the corresponding vertices.
+
+#### Undirected matrix
+
+In an undirected graph with N vertices, the adjacency matrix A will be an N x N
+matrix. For an undirected edge between vertices i and j, the corresponding
+entries in the matrix (`A[i][j]` and `A[j][i]`) will have a value of 1,
+indicating the presence of an edge. If there is no edge between vertices i and
+j, the matrix entries will have the value of 0.
+
+![](attachements/adjacency-matrix-1.png)
+![](attachements/adjacency-matrix-2.png)
+
+#### Directed matrix
+
+In a directed graph with N vertices, the adjacency matrix A will also be an N x
+N matrix. For a directed edge from vertex i to vertex j, the corresponding entry
+in the matrix (`A[i][j]`) will have the value of 1, indicating the presence of
+an edge from i to j. If there is no edge from vertex i to vertex j, the matrix
+entry will have the value of 0.
+
+![](attachements/adjacency-directed-1.png)
+![](attachements/adjacency-directed-2.png)
 
 ### Adjacency list
 
-<!--TODO: write a few sentences -->
+#### Undirected list
+
+In an undirected graph, the edges between vertices have no direction. If vertex
+A is connected to vertex B, then vertex B is also connected to vertex A. As a
+result, the adjacency list for an undirected graph is symmetric.
+
+![](attachements/adjacency-list-undirected1.png)
+![](attachements/adjacency-list-undirected-2.png)
+
+#### Directed list
+
+In a directed graph, the edges between vertices have a direction. If vertex X is
+connected to vertex Y, it does not necessarily mean that vertex Y is connected
+to vertex X. As a result, the adjacency list for a directed graph is not
+symmetric.
+
+![](attachements/adjecency-list-directed-1.png)
+![](attachements/adjacency-list-directed-2.png)
