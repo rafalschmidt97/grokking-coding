@@ -34,13 +34,13 @@ func (g *GraphMapDFS) DFS(start int) {
 	// 2. Visit the current node
 	visited[start] = true
 
-	for len(stack) > 0 {
+	for len(stack) > 0 { // 6. Termination
 		current := stack[len(stack)-1] // 3. Peak a node
 		stack = stack[:len(stack)-1]   // 3. Pop a node
 		fmt.Print(current, " ")        // 4.1. Process the node
 
 		for _, neighbor := range g.adjacencyList[current] { // Process unvisited neighbor
-			if !visited[neighbor] {
+			if !visited[neighbor] { // 5. Backstrack until unvisited found
 				stack = append(stack, neighbor) // push to the stack
 				visited[neighbor] = true        // mark as visited
 			}
