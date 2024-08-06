@@ -5,7 +5,7 @@ import "fmt"
 // For this course, we assume that graphs don't have any
 // extra data or values associated with it. Therefore, we will add
 // an empty vector or list as a value attribute for the new graph node or vertex.
-type Graph struct {
+type GraphMap struct {
 	adjacencyList map[int][]int
 }
 
@@ -14,20 +14,20 @@ type Pair struct {
 	second int
 }
 
-func NewGraph() *Graph {
-	return &Graph{
+func NewGraph() *GraphMap {
+	return &GraphMap{
 		adjacencyList: make(map[int][]int),
 	}
 }
 
-func (g *Graph) AddVertex(vertex int) {
+func (g *GraphMap) AddVertex(vertex int) {
 	if _, exists := g.adjacencyList[vertex]; !exists {
 		g.adjacencyList[vertex] = make([]int, 0)
 	}
 }
 
 // Remove a vertex from the graph.
-func (g *Graph) RemoveVertex(vertex int) {
+func (g *GraphMap) RemoveVertex(vertex int) {
 	if _, exists := g.adjacencyList[vertex]; !exists {
 		return
 	}
@@ -43,7 +43,7 @@ func (g *Graph) RemoveVertex(vertex int) {
 }
 
 // Add an edge between two vertices.
-func (g *Graph) AddEdge(vertex1, vertex2 int) {
+func (g *GraphMap) AddEdge(vertex1, vertex2 int) {
 	// If vertex1 is not in the adjacency list, create a new entry and add vertex2.
 	if _, exists := g.adjacencyList[vertex1]; !exists {
 		g.adjacencyList[vertex1] = []int{vertex2}
@@ -62,7 +62,7 @@ func (g *Graph) AddEdge(vertex1, vertex2 int) {
 }
 
 // Remove an edge between two vertices.
-func (g *Graph) RemoveEdge(vertex1, vertex2 int) {
+func (g *GraphMap) RemoveEdge(vertex1, vertex2 int) {
 	for i, v := range g.adjacencyList[vertex1] {
 		if v == vertex2 {
 			// Remove vertex2 from the neighbors of vertex1
@@ -78,7 +78,7 @@ func (g *Graph) RemoveEdge(vertex1, vertex2 int) {
 }
 
 // Get a list of all vertices.
-func (g *Graph) GetVertices() []int {
+func (g *GraphMap) GetVertices() []int {
 	vertices := make([]int, 0, len(g.adjacencyList))
 	for vertex := range g.adjacencyList {
 		vertices = append(vertices, vertex)
@@ -87,7 +87,7 @@ func (g *Graph) GetVertices() []int {
 }
 
 // Check if two vertices are adjacent.
-func (g *Graph) IsAdjacent(vertex1, vertex2 int) bool {
+func (g *GraphMap) IsAdjacent(vertex1, vertex2 int) bool {
 	neighbors := g.adjacencyList[vertex1]
 	for _, neighbor := range neighbors {
 		if neighbor == vertex2 {
@@ -98,12 +98,12 @@ func (g *Graph) IsAdjacent(vertex1, vertex2 int) bool {
 }
 
 // Get the total number of vertices.
-func (g *Graph) GetVertexCount() int {
+func (g *GraphMap) GetVertexCount() int {
 	return len(g.adjacencyList)
 }
 
 // Get the total number of edges.
-func (g *Graph) GetEdgeCount() int {
+func (g *GraphMap) GetEdgeCount() int {
 	count := 0
 	for _, neighbors := range g.adjacencyList {
 		count += len(neighbors)
@@ -112,7 +112,7 @@ func (g *Graph) GetEdgeCount() int {
 }
 
 // Get a list of all edges.
-func (g *Graph) GetEdges() []Pair {
+func (g *GraphMap) GetEdges() []Pair {
 	edges := make([]Pair, 0)
 	for vertex1, neighbors := range g.adjacencyList {
 		for _, vertex2 := range neighbors {
@@ -125,12 +125,12 @@ func (g *Graph) GetEdges() []Pair {
 }
 
 // Get a list of neighbors of a given vertex.
-func (g *Graph) GetNeighbors(vertex int) []int {
+func (g *GraphMap) GetNeighbors(vertex int) []int {
 	return g.adjacencyList[vertex]
 }
 
-func main() {
-	graph := Graph{
+func mainAdt() {
+	graph := GraphMap{
 		adjacencyList: make(map[int][]int),
 	}
 	graph.AddVertex(1)

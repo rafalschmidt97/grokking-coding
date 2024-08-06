@@ -134,3 +134,53 @@ symmetric.
 
 ![](attachements/adjecency-list-directed-1.png)
 ![](attachements/adjacency-list-directed-2.png)
+
+## Graph Traversal
+
+Graph traversal involves visiting all the graph nodes following a specific
+strategy or order. During traversal, each node is typically marked as visited to
+avoid revisiting the same node multiple times and to prevent infinite loops in
+cyclic graphs.
+
+### Depth First Search (DFS)
+
+Explores all the nodes in a graph by systematically visiting as far as possible
+along each branch before backtracking. It operates on both directed and
+undirected graphs and can be implemented using recursion or an explicit stack
+data structure.
+
+![](attachements/dfs-stack-visited-table.png)
+
+Steps: Initialization, Visit current, Recursively call, mark as visited,
+backtracking, termination.
+
+![](attachements/dfs-example.png)
+
+Starting from node A, let's perform DFS on this graph:
+
+1. Start at node A (the source node).
+1. Mark node A as visited and process it: A (visited).
+1. Explore an unvisited neighbor of A. Let's say we choose B.
+1. Mark node B as visited and process it: A -> B (visited).
+1. From node B, explore an unvisited neighbor. We choose D.
+1. Mark node D as visited and process it: A -> B -> D (visited).
+1. Node D has no unvisited neighbors, so we backtrack to node B.
+1. Node B has another unvisited neighbor, E. We explore E.
+1. Mark node E as visited and process it: A -> B -> D -> E (visited).
+1. From node E, explore an unvisited neighbor. We choose F.
+1. Mark node F as visited and process it: A -> B -> D -> E -> F (visited).
+1. Node F has one unvisited neighbor, C. We explore C.
+1. Mark node C as visited and process it: A -> B -> D -> E -> F -> C (visited).
+1. Node C has no unvisited neighbors, so we backtrack to node F.
+1. Node F has no unvisited neighbors, so we backtrack to node E.
+1. Node E has no more unvisited neighbors, so we backtrack to node B.
+1. Node B has no more unvisited neighbors, so we backtrack to node A.
+1. Node A has no more unvisited neighbors, and we have visited all reachable
+   nodes.
+
+The DFS traversal order for this graph starting from node A is: A -> B -> D -> E
+-> F -> C.
+
+### Breadth First Search (BFS)
+
+<!--TODO: describe -->
