@@ -4,28 +4,12 @@ import (
 	"fmt"
 )
 
-type GraphIndex struct {
-	adjacencyList [][]int
-}
-
-func NewGraphDFS(size int) *GraphIndex {
-	g := &GraphIndex{
-		adjacencyList: make([][]int, 0),
-	}
-	for i := 0; i < size; i++ {
-		g.adjacencyList = append(g.adjacencyList, []int{})
-	}
-	return g
-}
-
-func (g *GraphIndex) addEdge(u, v int) {
-	g.adjacencyList[u] = append(g.adjacencyList[u], v)
-	g.adjacencyList[v] = append(g.adjacencyList[v], u) // For an undirected graph
-}
+// TODO: why I cannot share the graph structure in the same package
+// and getting redeclared in this block and undefined graph map in the same time.
 
 // Time complexity: In the worst case, DFS once visits all nodes and edges in
 // the graph. For a graph with V vertices (nodes) and E edges, the time
-// complexity of DFS is  O(V+E)
+// complexity of DFS is O(V+E)
 // - Visiting a node (marking it as visited and processing it) takes O(1) time.
 // - Exploring all neighbors of a node takes O(d) time, where 'd' is the average
 // degree of nodes in the graph. In the worst case, 'd' can be as
@@ -40,7 +24,7 @@ func (g *GraphIndex) addEdge(u, v int) {
 // The space complexity of the recursion stack in the worst case is O(V).
 // Additionally, if an explicit stack is used, its space complexity would also
 // be O(V) in the worst case.
-func (g *GraphIndex) DFS(start int) {
+func (g *GraphMapDFS) DFS(start int) {
 	visited := make([]bool, len(g.adjacencyList))
 	stack := []int{}
 
@@ -62,14 +46,36 @@ func (g *GraphIndex) DFS(start int) {
 }
 
 func main() {
-	graph := NewGraphDFS(7)
-	graph.addEdge(0, 1)
-	graph.addEdge(0, 2)
-	graph.addEdge(1, 3)
-	graph.addEdge(1, 4)
-	graph.addEdge(2, 5)
-	graph.addEdge(2, 6)
+	graph := GraphMapDFS{
+		adjacencyList: make(map[int][]int),
+	}
+	graph.AddEdge(0, 1)
+	graph.AddEdge(0, 2)
+	graph.AddEdge(1, 3)
+	graph.AddEdge(1, 4)
+	graph.AddEdge(2, 5)
+	graph.AddEdge(2, 6)
 
 	fmt.Print("DFS Traversal starting from vertex 0: ")
 	graph.DFS(0)
+}
+
+// Boilerplate
+
+type GraphMapDFS struct {
+	adjacencyList map[int][]int
+}
+
+func (g *GraphMapDFS) AddEdge(vertex1, vertex2 int) {
+	if _, exists := g.adjacencyList[vertex1]; !exists {
+		g.adjacencyList[vertex1] = []int{vertex2}
+	} else {
+		g.adjacencyList[vertex1] = append(g.adjacencyList[vertex1], vertex2)
+	}
+
+	if _, exists := g.adjacencyList[vertex2]; !exists {
+		g.adjacencyList[vertex2] = []int{vertex1}
+	} else {
+		g.adjacencyList[vertex2] = append(g.adjacencyList[vertex2], vertex1)
+	}
 }
