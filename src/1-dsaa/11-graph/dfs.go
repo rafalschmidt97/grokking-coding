@@ -28,18 +28,21 @@ func (g *GraphMapDFS) DFS(start int) {
 	visited := make([]bool, len(g.adjacencyList))
 	stack := []int{}
 
+	// Stack-Based Approach (Using an Explicit Stack) over recursion
+	// 1. Initialization: choose a starting node and push it to the stack
 	stack = append(stack, start)
+	// 2. Visit the current node
 	visited[start] = true
 
 	for len(stack) > 0 {
-		current := stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
-		fmt.Print(current, " ")
+		current := stack[len(stack)-1] // 3. Peak a node
+		stack = stack[:len(stack)-1]   // 3. Pop a node
+		fmt.Print(current, " ")        // 4.1. Process the node
 
-		for _, neighbor := range g.adjacencyList[current] {
+		for _, neighbor := range g.adjacencyList[current] { // Process unvisited neighbor
 			if !visited[neighbor] {
-				stack = append(stack, neighbor)
-				visited[neighbor] = true
+				stack = append(stack, neighbor) // push to the stack
+				visited[neighbor] = true        // mark as visited
 			}
 		}
 	}

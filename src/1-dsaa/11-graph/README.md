@@ -181,6 +181,26 @@ Starting from node A, let's perform DFS on this graph:
 The DFS traversal order for this graph starting from node A is: A -> B -> D -> E
 -> F -> C.
 
+#### Approaches
+
+##### Recursive Approach (Using Recursion)
+
+1. For each unvisited neighbor of the current node:
+   1. Recursively call the DFS function with the neighbor as the new current
+      node.
+   1. Mark the neighbor as visited.
+
+##### Stack-Based Approach (Using an Explicit Stack)
+
+1. Push the starting node onto the stack.
+1. While the stack is not empty:
+   1. Pop a node from the stack (current node).
+   1. Process the current node (e.g., print its value or perform any other
+      operation you need to do).
+1. For each unvisited neighbor of the current node:
+   1. Push the unvisited neighbor onto the stack.
+   1. Mark the neighbor as visited.
+
 ### Breadth First Search (BFS)
 
 <!--TODO: describe -->
