@@ -4,9 +4,6 @@ import (
 	"fmt"
 )
 
-// TODO: why I cannot share the graph structure in the same package
-// and getting redeclared in this block and undefined graph map in the same time.
-
 // Time complexity: In the worst case, DFS once visits all nodes and edges in
 // the graph. For a graph with V vertices (nodes) and E edges, the time
 // complexity of DFS is O(V+E)
@@ -48,7 +45,7 @@ func (g *GraphMapDFS) DFS(start int) {
 	}
 }
 
-func main() {
+func mainDFS() {
 	graph := GraphMapDFS{
 		adjacencyList: make(map[int][]int),
 	}
@@ -64,6 +61,9 @@ func main() {
 }
 
 // Boilerplate
+
+// TODO: why I cannot share the graph structure in the same package
+// and getting redeclared in this block and undefined graph map in the same time.
 
 type GraphMapDFS struct {
 	adjacencyList map[int][]int

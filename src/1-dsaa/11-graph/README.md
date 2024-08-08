@@ -151,8 +151,8 @@ data structure.
 
 ![](attachements/dfs-stack-visited-table.png)
 
-Steps: Initialization, Visit current, Recursively call, mark as visited,
-backtracking, termination.
+Steps: Initialization of stack, Visit current, Recursively call, mark as
+visited, backtracking, termination.
 
 ![](attachements/dfs-example.png)
 
@@ -203,4 +203,27 @@ The DFS traversal order for this graph starting from node A is: A -> B -> D -> E
 
 ### Breadth First Search (BFS)
 
-<!--TODO: describe -->
+Graph traversal algorithm that explores a graph's vertices (nodes) level by
+level. It starts from a selected source node and moves outward to visit all the
+nodes at the same distance from the source before moving on to nodes at the
+following distance level.
+
+Steps: Initialization of queue, mark source (visit), traversal as long as the
+queue is not empty, enqueue neighbors and mark.
+
+![](attachements/bfs-steps.png)
+
+Starting from the source node A, the BFS traversal would be as follows:
+
+![](attachements/bfs-traversal-example.png)
+
+Start with A (the source node) and enqueue it. Queue: [A]
+
+1. Dequeue A and process it. Enqueue its neighbors B and C. Queue: [B, C]
+1. Dequeue B and process it. Enqueue its neighbors D and E. Queue: [C, D, E]
+1. Dequeue C and process it. Enqueue its neighbor F. Queue: [D, E, F]
+1. Dequeue D and process it. No unvisited neighbors to enqueue. Queue: [E, F]
+1. Dequeue E and process it. Queue: [F]
+1. Dequeue F and process it. No unvisited neighbors to enqueue. Queue: []
+
+The BFS traversal order is: A -> B -> C -> D -> E -> F.
