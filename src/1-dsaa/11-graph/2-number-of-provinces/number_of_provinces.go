@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// Time complexity: O(n^2)
+// Space complexity: O(n)
 func numberOfProvinces(adjacencyList [][]int) int {
 	provinces := 0
 	visited := make([]bool, len(adjacencyList))
