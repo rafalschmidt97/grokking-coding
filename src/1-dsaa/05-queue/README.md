@@ -5,6 +5,8 @@ enters first is the one that gets accessed first (FIFO).
 
 ## FIFO
 
+![](attachements/queue.png)
+
 Terminology:
 
 - Enqueue: add an element at the end.
