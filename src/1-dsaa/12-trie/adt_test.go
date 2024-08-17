@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestTemplateCases(t *testing.T) {
+func TestAdtTrie(t *testing.T) {
 	tests := []struct {
 		input    [][]string
 		expected []int
