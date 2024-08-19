@@ -114,10 +114,3 @@ func (node *TrieNode) insert(word string) {
 	}
 	current.endWord = true
 }
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
