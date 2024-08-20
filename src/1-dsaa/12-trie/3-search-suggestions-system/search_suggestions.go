@@ -2,6 +2,17 @@ package main
 
 import "fmt"
 
+// Time Complexity: O(N * L + M), combining the time to build the Trie and perform searches.
+//
+//	Building the Trie: (O(N x L)), where (N) is the number of products and (L) is the average length of the products.
+//	Searching for Each Prefix: (O(M x K)), where (M) is the length of the
+//	search word and (K) is the time taken for the DFS, which is limited to 3 (constant time).
+//	Overall, it's approximately (O(M)).
+//
+// Space complexity is dominated by the trie storage, which is (O(N x L)).
+//
+//	Trie Storage: (O(N x L)), as each product of average length (L) is stored in the trie.
+//	Search Results: (O(M)), as we store up to 3 suggestions for each character in the search word.
 func searchSugestions(search string, words []string) [][]string {
 	root := &TrieNode{}
 	for _, word := range words {
