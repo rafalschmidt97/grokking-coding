@@ -21,3 +21,5 @@ be simplified to O(n^2).
 - O(2^n) - fibonacci sequence (recursion of n)
 
 ![](./bigo-complexity.png)
+
+For more about sorting (bubble, quick, merge) go to the chapter 13.
