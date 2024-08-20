@@ -11,16 +11,46 @@ func searchSugestions(search string, words []string) [][]string {
 	searchResults := [][]string{}
 
 	prefix := ""
-	for _, char := range search {
-		prefix += string(char)
+	for _, charSuggest := range search {
+		prefix += string(charSuggest)
 
 		charResults := []string{}
-		// TODO: trie DFS search
+		searchForWords(prefix, charResults, root)
 
 		searchResults = append(searchResults, charResults)
 	}
 
 	return searchResults
+}
+
+func searchForWords(prefix string, results []string, rootNode *TrieNode) {
+	currentNode := rootNode
+	for _, charInner := range prefix {
+		index := charInner - 'a'
+		if currentNode.children[index] == nil {
+			return
+		}
+		currentNode = currentNode.children[index]
+	}
+	dfsForWords(prefix, results, currentNode)
+}
+
+func dfsForWords(prefix string, results []string, currentNode *TrieNode) {
+	if len(results) == 3 {
+		return
+	}
+
+	if currentNode.endWord {
+		results = append(results, prefix)
+	}
+
+	for char := 'a'; char <= 'z'; char++ {
+		index := char - 'a'
+		if currentNode.children[index] != nil {
+			newPrefix := prefix + string(char)
+			dfsForWords(newPrefix, results, currentNode.children[index])
+		}
+	}
 }
 
 func main() {
