@@ -15,7 +15,7 @@ func searchSugestions(search string, words []string) [][]string {
 		prefix += string(charSuggest)
 
 		charResults := []string{}
-		searchForWords(prefix, charResults, root)
+		searchForWords(prefix, &charResults, root)
 
 		searchResults = append(searchResults, charResults)
 	}
@@ -23,7 +23,7 @@ func searchSugestions(search string, words []string) [][]string {
 	return searchResults
 }
 
-func searchForWords(prefix string, results []string, rootNode *TrieNode) {
+func searchForWords(prefix string, results *[]string, rootNode *TrieNode) {
 	currentNode := rootNode
 	for _, charInner := range prefix {
 		index := charInner - 'a'
@@ -35,13 +35,13 @@ func searchForWords(prefix string, results []string, rootNode *TrieNode) {
 	dfsForWords(prefix, results, currentNode)
 }
 
-func dfsForWords(prefix string, results []string, currentNode *TrieNode) {
-	if len(results) == 3 {
+func dfsForWords(prefix string, results *[]string, currentNode *TrieNode) {
+	if len(*results) == 3 {
 		return
 	}
 
 	if currentNode.endWord {
-		results = append(results, prefix)
+		*results = append(*results, prefix)
 	}
 
 	for char := 'a'; char <= 'z'; char++ {

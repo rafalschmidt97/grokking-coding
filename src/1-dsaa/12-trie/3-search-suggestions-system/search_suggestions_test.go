@@ -18,8 +18,8 @@ func TestSearchSuggestions(t *testing.T) {
 				"apple", "apricot", "application",
 			},
 			expected: [][]string{
-				{"apple", "apricot", "application"},
-				{"apple", "apricot", "application"},
+				{"apple", "application", "apricot"},
+				{"apple", "application", "apricot"},
 				{"apple", "application"},
 			},
 		},
