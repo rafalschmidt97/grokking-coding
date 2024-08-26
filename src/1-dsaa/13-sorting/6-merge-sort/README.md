@@ -16,7 +16,7 @@ graph TD
     J --> K(Sorted List)
 ```
 
-## Explanation (ai based)
+## Explanation
 
 1. **Unsorted List (A)**: This is the initial input list that needs to be
    sorted.

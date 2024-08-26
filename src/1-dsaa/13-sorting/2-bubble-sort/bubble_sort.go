@@ -7,11 +7,18 @@ import "fmt"
 // Time complexity: O(n^2)
 // Space complexity: O(1)
 func bubbleSort(array []int) {
-	for io := 0; io < len(array); io++ {
-		for ii := io + 1; ii < len(array); ii++ {
-			if array[io] > array[ii] {
-				array[io], array[ii] = array[ii], array[io]
+	n := len(array)
+	for i := 0; i < n-1; i++ {
+		swapped := false
+		for j := 0; j < n-i-1; j++ {
+			if array[j] > array[j+1] {
+				array[j], array[j+1] = array[j+1], array[j]
+				swapped = true
 			}
+		}
+
+		if !swapped {
+			break
 		}
 	}
 }
