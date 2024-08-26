@@ -48,6 +48,8 @@ func (s *Solution) Merge(arr []int, l int, m int, r int) {
 	}
 }
 
+// Time Complexity: O(nlogn) consistently in all cases.
+// Space Complexity: O(n) due to the temporary arrays used during the merge process.
 func (s *Solution) Sort(arr []int, l int, r int) {
 	/**
 	 * Main function that sorts arr[l..r] using merge()
