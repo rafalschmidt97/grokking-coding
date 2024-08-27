@@ -19,7 +19,7 @@ func TestBucketSort(t *testing.T) {
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v,%v", tt.inputArray, tt.expectedArray)
 		t.Run(testname, func(t *testing.T) {
-			sortedArray := radixSort(tt.inputArray)
+			sortedArray := bucketSort(tt.inputArray)
 
 			if !reflect.DeepEqual(sortedArray, tt.expectedArray) {
 				t.Errorf("got %v; want %v, input %v", sortedArray, tt.expectedArray, tt.inputArray)
