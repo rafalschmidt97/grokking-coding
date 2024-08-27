@@ -9,12 +9,12 @@ import "fmt"
 // one containing elements equal to the pivot, and one containing elements greater
 // than the pivot. It then recursively sorts the left and right subarrays.
 //
-// Time complexity: O(nlogn), worst case O(n) if the pivot is always the smallest
+// Time complexity: O(nlogn), worst case O(n^2) if the pivot is always the smallest
 // or largest element in the array
 //
-// Space complexity: O(logn), determined by the number of recursive calls that are made.
-// Each recursive call processes approximately n/2 elements, so the total number of
-// recursive calls is approximately logn.
+// Space complexity: O(logn), worst case O(n), determined by the number of recursive
+// calls that are made. Each recursive call processes approximately n/2 elements,
+// so the total number of recursive calls is approximately logn.
 func quickSort(array []int) []int {
 	if len(array) <= 1 {
 		return array
