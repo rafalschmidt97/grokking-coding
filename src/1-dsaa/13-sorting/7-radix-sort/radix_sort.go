@@ -2,6 +2,13 @@ package main
 
 import "fmt"
 
+// Time Complexity: O(d * (n+b)), where d is the number
+// of digits in the largest number, n is the number of elements
+// in the array, and b is the base of the numbering system used.
+// For the decimal system, b is 10.
+//
+// Space Complexity: O(n+b), due to the temporary output array
+// and the count arrays used for each digit.
 func radixSort(arr []int) []int {
 	maximum := 0
 	for _, num := range arr {
@@ -13,7 +20,7 @@ func radixSort(arr []int) []int {
 	// Do counting sort for every digit.
 	// The exp is 10^i where i is the current digit number
 	for exp := 1; maximum/exp > 0; exp *= 10 {
-		countSort(arr, exp)
+		countSortWithExp(arr, exp)
 	}
 
 	return arr
@@ -21,7 +28,7 @@ func radixSort(arr []int) []int {
 
 // Function to perform counting sort on the array according to the
 // digit represented by exp (10^i)
-func countSort(arr []int, exp int) {
+func countSortWithExp(arr []int, exp int) {
 	output := make([]int, len(arr)) // output array
 	count := make([]int, 10)
 	var i int
