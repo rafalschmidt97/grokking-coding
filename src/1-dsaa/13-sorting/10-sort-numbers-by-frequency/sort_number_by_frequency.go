@@ -12,6 +12,8 @@ func sortByFrequency(input []int) {
 	for _, v := range input {
 		frequencies[v]++
 	}
+
+	// could also just reuse mergesort from the previous task
 	sort.Slice(input, func(i, j int) bool {
 		return frequencies[input[i]] <= frequencies[input[j]]
 	})
