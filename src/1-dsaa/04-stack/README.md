@@ -27,3 +27,7 @@ There are four key operations that you can perform on a stack:
 ## Skipped exercises
 
 - Reverse string
+
+## TODO
+
+- Rewrite tasks to use `container/list`
