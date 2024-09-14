@@ -17,7 +17,7 @@ import "fmt"
 //
 // Time complexity: O(n) as every element is pushed and popped from the stack exactly once.
 // Space complexity: O(n)
-func nextGreaterElemenet(input []int) []int {
+func nextGreaterElement(input []int) []int {
 	stack := make([]int, 0)
 	result := make([]int, len(input))
 
@@ -47,5 +47,5 @@ func nextGreaterElemenet(input []int) []int {
 
 func main() {
 	input := []int{4, 5, 2, 25}
-	fmt.Println(nextGreaterElemenet(input))
+	fmt.Println(nextGreaterElement(input))
 }

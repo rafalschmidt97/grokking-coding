@@ -7,7 +7,7 @@ import "fmt"
 // Input Stack: [34, 3, 31, 98], tmpStack: [23, 92]
 // Input Stack: [34, 3, 31], tmpStack: [23, 92, 98]
 // Input Stack: [34, 3, 98, 92], tmpStack: [23, 31]
-// nput Stack: [34, 3], tmpStack: [23, 31, 92, 98]
+// Input Stack: [34, 3], tmpStack: [23, 31, 92, 98]
 // Input Stack: [34, 98, 92, 31, 23], tmpStack: [3]
 // Input Stack: [34], tmpStack: [3, 23, 31, 92, 98]
 // Input Stack: [98, 92], tmpStack: [3, 23, 31, 34]

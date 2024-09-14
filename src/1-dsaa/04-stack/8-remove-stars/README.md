@@ -15,12 +15,14 @@ Example 1
 
 Input: "abc*de*f"
 Expected Output: "abdf"
-Description: We remove c along with * to get "abde*f", then remove e along with * to get "abdf"
+Description: We remove c along with * to get "abde*f", then remove
+e along with * to get "abdf"
 Example 2
 
 Input: "a*b*c*d"
 Expected Output: d
-Description: We remove a along with * to get "b*c*d", then remove b with * to get "c*d", then remove c with * to get "d".
+Description: We remove a along with * to get "b*c*d", then remove b
+with * to get "c*d", then remove c with * to get "d".
 Example 3
 
 Input: "abcd"
