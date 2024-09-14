@@ -33,7 +33,7 @@ func verifyBalancedParentheses(input string) bool {
 
 		if idx := slices.Index(closingSymbols, v); idx != -1 {
 			if stack[position] == openingSymbols[idx] {
-				stack = slices.Delete(stack, position, position+1)
+				stack = slices.Delete(stack, position, position+1) // pop, O(1)
 				position = position - 1
 			} else {
 				return false
