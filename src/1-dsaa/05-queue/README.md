@@ -65,7 +65,3 @@ There are four key operations that you can perform on a queue:
 
 - Reverse queue with stack
 - Implement stack using queue
-
-## TODO
-
-- Rewrite tasks to use `container/list`

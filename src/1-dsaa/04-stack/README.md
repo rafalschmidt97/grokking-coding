@@ -24,7 +24,6 @@ There are four key operations that you can perform on a stack:
 - Using an Array
 - Using Linked List
 
-## TODO
+## Skipped exercises
 
-- Rewrite tasks to use `container/list`
 - Reverse string
