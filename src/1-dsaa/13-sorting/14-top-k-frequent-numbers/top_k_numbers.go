@@ -13,9 +13,7 @@ func findTopKFrequentNumbers(input []int, k int) []int {
 	}
 
 	maxHeap := make([]int, 0)
-	for _, v := range input {
-		maxHeap = append(maxHeap, v)
-	}
+	maxHeap = append(maxHeap, input...)
 	buildMaxHeap(maxHeap, frequencies)
 
 	outputDist := make(map[int]struct{}, 0)
