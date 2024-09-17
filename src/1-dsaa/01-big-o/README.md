@@ -22,4 +22,5 @@ be simplified to O(n^2).
 
 ![](./bigo-complexity.png)
 
-For more about sorting (bubble, quick, merge) go to the chapter 13.
+For more about sorting (bubble, quick, merge) go to the chapter 13. For more
+about searching (linear, binary) go to the chapter 14.
