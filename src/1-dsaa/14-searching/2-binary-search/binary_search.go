@@ -43,6 +43,24 @@ func binarySearch(array []int, x int) (index int) {
 	return -1
 }
 
+func binarySearchPure(array []int, target int) (index int) {
+	lowIndex := 0
+	highIndex := len(array) - 1
+
+	for lowIndex <= highIndex {
+		middleIndex := lowIndex + (highIndex-lowIndex)/2
+
+		if array[middleIndex] == target {
+			return middleIndex // Target found, return its index
+		} else if array[middleIndex] < target {
+			lowIndex = middleIndex + 1 // Target is on the right half
+		} else {
+			highIndex = middleIndex - 1 // Target is on the left half
+		}
+	}
+	return -1 // Target not found
+}
+
 func main() {
 	array := []int{2, 3, 4, 5, 10, 40}
 	x := 3
