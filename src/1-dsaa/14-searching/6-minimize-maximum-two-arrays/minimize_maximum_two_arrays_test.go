@@ -39,7 +39,7 @@ func TestMinimizeMaximumOfTwoArrays(t *testing.T) {
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v,%v", tt.divisor1, tt.expected)
 		t.Run(testname, func(t *testing.T) {
-			got := minimizeMaximum(tt.divisor1, tt.divisor2, tt.uniqueCnt1, tt.uniqueCnt2)
+			got := minimizeMaximumOriginal(tt.divisor1, tt.divisor2, tt.uniqueCnt1, tt.uniqueCnt2)
 			if got != tt.expected {
 				t.Errorf("got %v; expected %v", got, tt.expected)
 			}
