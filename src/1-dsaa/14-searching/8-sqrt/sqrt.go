@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-// Time complexity: TODO: change
-// Space complexity: TODO: change
+// Time complexity: O(logn)
+// Space complexity: O(1)
 func sqrt(x int) int {
 	if x < 2 {
 		return x // return x if it is 0 or 1
