@@ -2,38 +2,48 @@ package main
 
 import (
 	"fmt"
-	"sort"
+	"strconv"
 )
 
-// Time complexity: TODO: change
-// Space complexity: TODO: change
+// Time complexity: O(n)
+// Space complexity: O(n)
 func largestPalindromicNumber(input string) string {
-	inputArray := []rune(input)
-	sort.Slice(inputArray, func(i, j int) bool {
-		return inputArray[i] > inputArray[j]
-	})
+	frequencies := make([]int, 10)
 
-	front, back := "", ""
-	previous := inputArray[0]
-	for i := 1; i < len(inputArray); i++ {
-		current := inputArray[i]
-		if current == previous {
-			previous = 'X' // mark as taken if matching
-			front += string(current)
-			back = string(current) + back
-		} else {
-			previous = current
+	for _, ch := range input {
+		val := ch - '0'
+		frequencies[val]++
+	}
+
+	firstHalf := ""
+	middle := ""
+
+	for i := 9; i >= 0; i-- {
+		count := frequencies[i]
+		if count > 0 {
+			digit := strconv.Itoa(i)
+			// Append half of the count to the first half
+			for j := 0; j < count/2; j++ {
+				firstHalf += digit
+			}
+			// If there's an odd count and no middle digit yet, set the middle digit
+			if count%2 == 1 && middle == "" {
+				middle = digit
+			}
 		}
 	}
 
-	if len(front) == 0 && len(back) == 0 {
-		return string(inputArray[0])
-	} else {
-		return front + back
+	// Construct the second half by reversing the first half
+	secondHalf := ""
+	for i := len(firstHalf) - 1; i >= 0; i-- {
+		secondHalf += string(firstHalf[i])
 	}
+
+	// Combine first half, middle (if any), and second half to form the palindrome
+	return firstHalf + middle + secondHalf
 }
 
 func main() {
-	input := "24321"
+	input := "323211444"
 	fmt.Println(largestPalindromicNumber(input))
 }
