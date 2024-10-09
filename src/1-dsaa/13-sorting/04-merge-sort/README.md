@@ -38,3 +38,5 @@ Key Points
   Merge function.
 
 ![](attachements/merge.png)
+
+![](attachements/merge2.png)
