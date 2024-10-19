@@ -82,3 +82,7 @@ calculations.
 D&C works well for problems with distinct subproblems, while DP is more
 efficient for problems with overlapping subproblems due to its ability to store
 and reuse previous results.
+
+## Skipped
+
+- Beautiful array

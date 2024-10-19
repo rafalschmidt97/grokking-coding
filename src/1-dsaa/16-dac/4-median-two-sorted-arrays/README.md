@@ -26,9 +26,7 @@ The median is (1 + 2) / 2 = 1.5.
 Example 3:
 Input: [2, 3, 5, 8] and [1, 4, 6, 7, 9]
 Expected Output: 5
-Justification: The merged array would be [10, 15, 20, 25, 30, 35, 40, 45].
-The median is the average of the middle two values, 25 and 30,
-which is (25 + 30) / 2 = 27.5.
+Justification: The merged array would be [1,2,3,4,5,6,7,8,9].
 ```
 
 ## Constraints

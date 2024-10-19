@@ -43,7 +43,7 @@ func TestMedianOfTwoSortedArrays(t *testing.T) {
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%v,%v", tt.nums1, tt.expected)
 		t.Run(testname, func(t *testing.T) {
-			got := medianSortedArrays(tt.nums1, tt.nums2)
+			got := medianSortedArraysWithMergeSort(tt.nums1, tt.nums2)
 			if got != tt.expected {
 				t.Errorf("got %v; expected %v", got, tt.expected)
 			}
